@@ -2,7 +2,11 @@ const express = require('express');
 const redis = require('redis');
 
 const app = express();
-const client = redis.createClient();
+const client = redis.createClient({ 
+  // from docker compose
+  host: 'redis-server', // see docker-compose name
+  port: 6379
+});
 client.set('visits', 0);
 
 app.get('/', (req, res) => {

@@ -1,0 +1,8 @@
+version: '3' # (required) version of docker-compose we will use
+services: # meaning containers in docker-world
+  redis-server:
+    image: 'redis'
+  node-app:
+    build: . # directory of where the Dockerfile is located
+    ports: # we can map different ports in a single app
+      - '4001:8081'
