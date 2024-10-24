@@ -3,6 +3,7 @@ services: # meaning containers in docker-world
   redis-server:
     image: 'redis'
   node-app:
+    restart: on-failure
     build: . # directory of where the Dockerfile is located
     ports: # we can map different ports in a single app
       - '4001:8081'
